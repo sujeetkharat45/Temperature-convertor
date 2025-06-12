@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="container">
+        <div class="converter-card">
+            <div class="card-header">
+                <div class="header-content">
+                    <div class="thermometer-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 14.76V5.5a2.5 2.5 0 0 0-5 0v9.26a4.5 4.5 0 1 0 5 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="m11.5 15.5 1.5 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>Temperature Converter</h1>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="temperature">Enter Temperature</label>
+                    <div class="input-wrapper">
+                        <div class="input-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 14.76V5.5a2.5 2.5 0 0 0-5 0v9.26a4.5 4.5 0 1 0 5 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <input 
+                            type="number" 
+                            id="temperature" 
+                            placeholder="0.00" 
+                            step="0.01"
+                            required
+                        >
+                    </div>
+                    <span class="error-message" id="error-message"></span>
+                </div>
+            </div>
+            
+            <div class="units-container">
+                <div class="unit-group">
+                    <h3>From</h3>
+                    <div class="toggle-group">
+                        <div class="toggle-option">
+                            <input type="radio" id="from-celsius" name="from-unit" value="celsius" checked>
+                            <label for="from-celsius">
+                                <span class="unit-icon">❄️</span>
+                                <span>°C</span>
+                            </label>
+                        </div>
+                        <div class="toggle-option">
+                            <input type="radio" id="from-fahrenheit" name="from-unit" value="fahrenheit">
+                            <label for="from-fahrenheit">
+                                <span class="unit-icon">🌡️</span>
+                                <span>°F</span>
+                            </label>
+                        </div>
+                        <div class="toggle-option">
+                            <input type="radio" id="from-kelvin" name="from-unit" value="kelvin">
+                            <label for="from-kelvin">
+                                <span class="unit-icon">🔬</span>
+                                <span>K</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swap-icon" id="swap-units">
+                    <div class="swap-background"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 16V4m0 0L3 8m4-4l4 4"></path>
+                        <path d="M17 8v12m0 0l4-4m-4 4l-4-4"></path>
+                    </svg>
+                </div>
+                
+                <div class="unit-group">
+                    <h3>To</h3>
+                    <div class="toggle-group">
+                        <div class="toggle-option">
+                            <input type="radio" id="to-celsius" name="to-unit" value="celsius">
+                            <label for="to-celsius">
+                                <span class="unit-icon">❄️</span>
+                                <span>°C</span>
+                            </label>
+                        </div>
+                        <div class="toggle-option">
+                            <input type="radio" id="to-fahrenheit" name="to-unit" value="fahrenheit" checked>
+                            <label for="to-fahrenheit">
+                                <span class="unit-icon">🌡️</span>
+                                <span>°F</span>
+                            </label>
+                        </div>
+                        <div class="toggle-option">
+                            <input type="radio" id="to-kelvin" name="to-unit" value="kelvin">
+                            <label for="to-kelvin">
+                                <span class="unit-icon">🔬</span>
+                                <span>K</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="convert-btn" class="convert-btn">
+                <div class="btn-background"></div>
+                <span>Convert Temperature</span>
+                <svg class="convert-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                </svg>
+            </button>
+            
+            <div class="result-section">
+                <div class="thermometer-visual" id="thermometer-visual">
+                    <div class="thermometer-container">
+                        <div class="thermometer-tube">
+                            <div class="thermometer-mercury" id="thermometer-mercury"></div>
+                        </div>
+                        <div class="thermometer-bulb">
+                            <div class="thermometer-bulb-inner" id="thermometer-bulb"></div>
+                        </div>
+                        <div class="temperature-scale">
+                            <div class="scale-mark hot">100°</div>
+                            <div class="scale-mark warm">50°</div>
+                            <div class="scale-mark cool">0°</div>
+                            <div class="scale-mark cold">-50°</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-container" id="result-container">
+                    <div class="weather-icon" id="weather-icon">🌡️</div>
+                    <div class="result-label">Result</div>
+                    <div class="result" id="result">
+                        <span id="result-value">--</span>
+                        <span id="result-unit">°F</span>
+                    </div>
+                    <div class="result-info" id="result-info"></div>
+                    <div class="temperature-category" id="temperature-category"></div>
+                </div>
+            </div>
+
+            <div class="history-container" id="history-container">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Recent Conversions
+                </h3>
+                <div class="history-list" id="history-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
